@@ -20,7 +20,6 @@ class Poster(models.Model):
     geo = "주최 장소의 정확한 지리적 위치"
     time = "일일호프가 열리는 시간"
     content = "특수한 정보: 동아리 공연/홍보, 후원 행사"
-    cash_only = "현금 계산만 가능한 경우, boolean"
     event = "특별한 이벤트에 관련된 정보, 텍스트로 처리할 예정"
             ex) 이름에 "주" 가 들어가면 소주 2000원 할인, 노래를 부르면 안주 무제한 제공!
 """
@@ -28,8 +27,8 @@ class Poster(models.Model):
 class Host(models.Model):
     single_host = models.CharField(max_length=50)
 
-class Content(models.Model):
-    single_content = models.CharField(max_length=50)
+class Event(models.Model):
+    single_event = models.CharField(max_length=50)
 
 class Image(models.Model):
     single_poster = models.ImageField()
@@ -38,9 +37,8 @@ class Poster(models.Model):
     image = models.ManyToManyField(Image)
     place = models.CharField(max_length=50)
     time = models.DateTimeField(auto_now=False)
-    cash_only = models.BooleanField()
-    event = models.TextField()
+    content = models.TextField()
     # geo =
 
     hosts = models.ManyToManyField(Host)
-    contents = models.ManyToManyField(Content)
+    events = models.ManyToManyField(Event)

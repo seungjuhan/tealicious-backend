@@ -82,7 +82,7 @@ DATABASES = {
     }
 }
 
-MEDIA_ROOT = '~/tealicious-projects/backend/upload/img'
+MEDIA_ROOT = './upload/img/'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
