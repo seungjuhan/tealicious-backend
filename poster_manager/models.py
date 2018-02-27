@@ -31,8 +31,11 @@ class Host(models.Model):
 class Content(models.Model):
     single_content = models.CharField(max_length=50)
 
+class Image(models.Model):
+    single_poster = models.ImageField()
+
 class Poster(models.Model):
-    image = models.ImageField()
+    image = models.ManyToManyField(Image)
     place = models.CharField(max_length=50)
     time = models.DateTimeField(auto_now=False)
     cash_only = models.BooleanField()
