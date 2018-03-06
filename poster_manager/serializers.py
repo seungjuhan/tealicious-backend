@@ -1,6 +1,14 @@
 from rest_framework import serializers
 from .models import Poster, Event, Host, Image
 
+"""
+Used Nested Serializer to serialize "events", "hosts", "image" fields.
+
+TODO:   Convert image into appropriate form of JSON.
+        Now, I just send images like "http://127.0.0.1:8000/posters/poster-11-1.JPG"
+
+"""
+
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
