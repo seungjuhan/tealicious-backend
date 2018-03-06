@@ -15,6 +15,8 @@ class EventSerializer(serializers.ModelSerializer):
         fields = ('single_event',)
 
 class ImageSerializer(serializers.ModelSerializer):
+    single_poster = serializers.ImageField(use_url=True)
+
     class Meta:
         model = Image
         fields = ('single_poster',)
